@@ -7,6 +7,7 @@ const posts = [
             "name": "Phil Mangione",
             "image": "https://unsplash.it/300/300?image=15"
         },
+
         "likes": 80,
         "created": "2021-06-25"
     },
@@ -57,26 +58,33 @@ const posts = [
 ];
 
 
+
 // collegamento DOM
 const eleContainer = document.querySelector('.posts-list');
-let likeCounter = document.querySelector('.js-likes-counter');
+let likeCounter = document.querySelectorAll('.js-likes-counter');
 
 postCard(posts, eleContainer);
 
-
 let idArr = [];
-//Add Event listener on like button
+//Add EventListener on like button
 const likeButton = document.querySelectorAll('.like-button');
 likeButton.forEach(likeButton => {
     likeButton.addEventListener('click', function() {
+        //Likes counter
+        likeCounter = posts[like];
+        console.log(likeCounter)
+
         if (this.classList.contains('active')) {
             this.classList.remove('active');
+            likeCounter--
         } else {
             this.classList.add('active');
+            likeCounter++
         }
-        // Add array of ID
+      //Add array of ID
       idArr.push(likeButton.dataset.postid);
-      
+      console.log(idArr);
+
     });
 });
 
