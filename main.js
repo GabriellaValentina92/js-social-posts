@@ -85,10 +85,10 @@ function socialCard(metaPost) {
             <div class="post__header">
                 <div class="post-meta">                    
                     <div class="post-meta__icon">
-                        <img class="profile-pic" src="${metaPost.author[1].image}" alt="${metaPost.author[0].name}">                    
+                        <img class="profile-pic" src="${metaPost.author.image}" alt="${metaPost.author.name}">                    
                     </div>
                     <div class="post-meta__data">
-                        <div class="post-meta__author">${metaPost.author[0].name}</div>
+                        <div class="post-meta__author">${metaPost.author.name}</div>
                         <div class="post-meta__time">${metaPost.created}</div>
                     </div>                    
                 </div>
