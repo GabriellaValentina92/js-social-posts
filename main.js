@@ -59,26 +59,40 @@ const posts = [
 
 // collegamento DOM
 const eleContainer = document.querySelector('.posts-list');
+let likeCounter = document.querySelector('.js-likes-counter');
 
-postCard(posts, eleContainer)
+postCard(posts, eleContainer);
 
 
+let idArr = [];
+//Add Event listener on like button
+const likeButton = document.querySelectorAll('.like-button');
+likeButton.forEach(likeButton => {
+    likeButton.addEventListener('click', function() {
+        if (this.classList.contains('active')) {
+            this.classList.remove('active');
+        } else {
+            this.classList.add('active');
+        }
+        // Add array of ID
+      idArr.push(likeButton.dataset.postid);
+      
+    });
+});
 
-// debugger
 
-//ciclo su l'array di oggetti
+//cicle on obj array
 function postCard(posts, eleContainer){
     for (let i = 0; i < posts.length; i++){
         const metaPost = posts[i];
         eleContainer.innerHTML += socialCard(metaPost);
+        
     };
 }
 
 
+// FUNCTIONS DEFINITION
 
-
-
-// definizione funzione
 function socialCard(metaPost) {
     return ` 
         <div class="post">
