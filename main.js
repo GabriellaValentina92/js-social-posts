@@ -55,3 +55,61 @@ const posts = [
         "created": "2021-03-05"
     }
 ];
+
+
+// collegamento DOM
+const eleContainer = document.querySelector('.posts-list');
+
+postCard(posts, eleContainer)
+
+
+
+// debugger
+
+//ciclo su l'array di oggetti
+function postCard(posts, eleContainer){
+    for (let i = 0; i < posts.length; i++){
+        const metaPost = posts[i];
+        eleContainer.innerHTML += socialCard(metaPost);
+    };
+}
+
+
+
+
+
+// definizione funzione
+function socialCard(metaPost) {
+    return ` 
+        <div class="post">
+            <div class="post__header">
+                <div class="post-meta">                    
+                    <div class="post-meta__icon">
+                        <img class="profile-pic" src="${metaPost.author[1].image}" alt="${metaPost.author[0].name}">                    
+                    </div>
+                    <div class="post-meta__data">
+                        <div class="post-meta__author">${metaPost.author[0].name}</div>
+                        <div class="post-meta__time">${metaPost.created}</div>
+                    </div>                    
+                </div>
+            </div>
+            <div class="post__text">${metaPost.content}.</div>
+            <div class="post__image">
+                <img src="${metaPost.media}" alt="">
+            </div>
+            <div class="post__footer">
+                <div class="likes js-likes">
+                    <div class="likes__cta">
+                        <a class="like-button  js-like-button" href="#" data-postid="${metaPost.id}">
+                            <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
+                            <span class="like-button__label">Mi Piace</span>
+                        </a>
+                    </div>
+                    <div class="likes__counter">
+                        Piace a <b id="like-counter-1" class="js-likes-counter">${metaPost.likes}</b> persone
+                    </div>
+                </div> 
+            </div>            
+        </div>`
+};
+
