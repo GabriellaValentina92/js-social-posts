@@ -70,16 +70,11 @@ let idArr = [];
 const likeButton = document.querySelectorAll('.like-button');
 likeButton.forEach(likeButton => {
     likeButton.addEventListener('click', function() {
-        //Likes counter
-        likeCounter = posts[like];
-        console.log(likeCounter)
-
-        if (this.classList.contains('active')) {
-            this.classList.remove('active');
-            likeCounter--
+        if (this.classList.contains('like-button--liked')) {
+            this.classList.remove('like-button--liked');
+            
         } else {
-            this.classList.add('active');
-            likeCounter++
+            this.classList.add('like-button--liked');
         }
       //Add array of ID
       idArr.push(likeButton.dataset.postid);
